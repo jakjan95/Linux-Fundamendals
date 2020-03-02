@@ -40,5 +40,5 @@ touch -t 200505050000 SinkoDeMayo
 touch -t 130207111630 BigBattle.txt
 ls -l
 
-9.5 -> na pon :)
+9.5 -> na pon :) bla bla
 
