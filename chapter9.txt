@@ -35,10 +35,120 @@ ls -l
 touch file42
 touch file33
 ls -l
-#9.4.2 touch -t ->setting time hehe
+#9.4.2 touch -t -> setting time
 touch -t 200505050000 SinkoDeMayo
 touch -t 130207111630 BigBattle.txt
 ls -l
 
-9.5 -> na pon :) bla bla
+#9.5 rm
+#9.5.1
+ls
+rm BigBattle.txt
+ls
+
+#9.5.2 rm -i -> preventing from accidentaly removing a file
+ls
+rm -i file33
+rm -i SinkoDeMayo
+ls
+
+#9.5.3 rm -rf
+rm -r -> recursive removing
+rm -rf -> recursive removing with non-empty directiories (force)
+mkdir test
+rm test
+rm -rf test
+ls test
+
+#9.6 cp -> copy
+#9.6.1 copy on file
+ls
+cp file42 file42.copy
+ls
+
+#9.6.2 copy to another directory
+mkdir dir42
+cp SinkoDeMayo dir42
+ls dir42
+
+#9.6.3 cp -r -> copy complete directories (recursive copying)
+ls
+cp -r dir42/ dir33
+ls
+ls dir33/
+
+#9.6.4 copy multiple files to directory
+cp file42 file42.copy SinkoDeMayo dir42/
+ls dir42/
+
+#9.6.5 cp -i (interactive option -> prefent from overwriting existing file)
+cp SinkoDeMayo file42
+cp SinkoDeMayo file42
+cp -i SinkoDeMayo file42
+
+#9.7. mv
+#9.7.1 rename files with mv
+ls
+mv file42 file33
+ls
+
+#9.7.2 rename directories with mv:
+ls -l
+mv dir33 backup
+ls -l
+
+#9.7.3 mv -i
+mv -i file33 SinkoDeMayo
+
+
+#9.8 rename
+rename command on Debian uses regular expressions to rename many files at once
+
+jakub@jakub-linux:~/Desktop/test42$ ls
+jakub@jakub-linux:~/Desktop/test42$ touch abc.txt
+jakub@jakub-linux:~/Desktop/test42$ touch file33.txt
+jakub@jakub-linux:~/Desktop/test42$ touch file42.txt
+ls
+rename 's/\.txt/\.png/' *.txt
+ls
+
+switches all 'file' to 'document'
+ls
+rename 's/file/document' *.png
+ls
+
+#9.9 practice:
+
+1.  ls /bin
+2.  file /bin/cat
+    file /etc/passwd
+    file /usr/bin/passwd
+3a. wget http://linux-training.be/files/studentfiles/wolf.jpg
+    wget http://linux-training.be/files/studentfiles/wolf.png
+    wget http://linux-training.be/files/books/LinuxFun.pdf
+3b. file wolf.jpg
+    file LinuxFun.pdf
+3c. mv wolf.jpg wolf.pdf
+3d. file wolf.pdf
+    file LinuxFun.pdf
+4.  mkdir ~/touched
+    cd ~/touched
+5.  touch today.txt yesterday.txt
+6.  touch -t 201903011800 yesterday.txt
+7.  cp yesterday.txt copy.yesterday.txt
+8.  mv copy.yesterday.txt kim
+9.  rmdir ~/testbackup/touched/
+    cp -rf ~/touched/. ~/testbackup
+10. rm -rf ~/testbackup
+11. cp /etc/*.conf ~/etcbackup/
+    cp - r /etc/*.conf ~/etcbackup/
+12. rename 's/\.conf/\.backup' *.conf
+
+
+
+
+
+
+
+
 
