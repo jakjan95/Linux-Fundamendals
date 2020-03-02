@@ -1,0 +1,44 @@
+#Chapter9
+#file, touch, rm, cp, mv rename
+
+#9.1 All files are case sensitive
+ls
+cat winter.txt
+cat Winter.txt
+
+#9.2 everything is a file
+directory is a special kind of FILE
+Everything on Linux is a file :-)
+
+#9.3 file
+file -> determines the file type
+as Linux user you should use the file command to determine type
+Linux doesn't use extensions to determine file type (.txt, .pdf)
+
+file pic33.png
+file /etc/passwd
+file HelloWorld.c
+
+file command use a magic file that contains patterns to recognise file types
+magic file is located in /usr/share/file/magic,  man 5 magic -> for more information
+
+
+file -s is for special files like those in /dev and /proc
+file /dev/sda           -> not working
+file -s /dev/sda        -> working 
+file /proc/cpuinfo      -> this not ;(
+file -s /proc/cpuinfo   -> this working
+
+#9.4 touch
+#9.4.1 create an empty file -> using touch
+ls -l
+touch file42
+touch file33
+ls -l
+#9.4.2 touch -t ->setting time hehe
+touch -t 200505050000 SinkoDeMayo
+touch -t 130207111630 BigBattle.txt
+ls -l
+
+9.5 -> na pon :)
+

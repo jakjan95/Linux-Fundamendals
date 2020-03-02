@@ -1,0 +1,81 @@
+#Chapter 8:
+#pwd, cd, ls, rmdir
+
+#8,1
+pwd - print current directory
+
+#8.2
+cd - change directory
+cd /etc
+pwd
+cd /bin
+pwd
+cd /home/jakub
+pwd
+
+#8.2.1
+cd ~ = cd  -> putting you in home directory
+
+#8.2.2
+cd .. -> going to parent directory(one above)
+cd . -> stay in current directory :)
+
+#8.2.3
+cd - -> going to previous directory
+
+#8.3 absolute nad relative paths
+cd home -> relative (can open only from current directory)
+cd /home -> absolute(can open from anywhere)
+
+#8.4 path completion
+tab key
+
+#8.5
+ls -> list contents of directory
+
+#8.5.1
+ls -a ->show all files
+
+#8.5.2
+ls -l ->long list
+
+#8.5.3
+ls -lh -> showing file sizes in human redable format
+
+#8.6
+mkdir -> creating directories
+
+#8.6.1
+mkdir -p  ->creating parent directory ass needed
+mkdir -p mydir2/mysubdir2/threedirsdeep
+
+#8.7
+rmdir ->remove directory
+
+#8.7.1
+rmdir -p -> recuresively remove directories
+mkdir -p test42/subdir
+rmdir -p test42/subdir
+
+#8.8 practice:
+1. pwd
+2. cd /etc
+3. cd
+4. cd /boot/grub (tab key)
+5. cd ..
+6. cd /
+7. ls
+8. ls -l
+9. ls /etc
+10. ls /bin or ls /sbin
+11. ls ~
+12. ls -al
+13. ls -lh /boot
+14. cd ~
+    mkdir testdir
+	mkdir ~/testdir
+15. cd /etc
+    mkdir ~/newdir
+16. mkdir -p ~/dir1/dir2/dir3
+17. rmdir ~/testdir/
+18. pushd popd ->no manual xD
