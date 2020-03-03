@@ -1,0 +1,91 @@
+#Chapter10 working with fle contents
+#head, tail, cat, tac, more, less
+
+#10.1 head -> first lines ten lines of a file
+head /etc/passwd
+head -4 /etc/passwd  -> displaying 4 lines(n-lines)
+head -c14 /etc/passwd -> first n-bytes
+
+#10.2 tail -> last ten lines
+tail /etc/services
+tail -3 /etc/services
+
+#10.3 cat -> copying standard input to standard otuput
+cat /etc/resolv.conf
+
+#10.3.1 concatenate
+echo one >part1
+echo two >part2
+echo three >part3
+cat part1
+cat part2
+cat part3
+cat part1 part2 part3
+cat part1 part2 part3 > all
+cat all
+
+#10.3.2 create files
+cat > winter.txt
+.......... ctrl+d(EOF)
+cat winter.txt
+
+#10.3.3 custom end marker
+<< - you can chose by this end marker for cat
+cat > hot.txt << stop
+>It is hot today!
+>Yes it is summer.
+>stop
+cat hot.txt
+It is hot today!
+Yes it is summer.
+
+#10.3.4 copy files
+cat winter.txt
+cat winter.txt > cold.txt
+cat cold.txt
+
+#10.4 tac(cat backwards)
+cat count
+tac count
+
+#10.5 more and less
+more - useful for displaying files that take up more than one screen
+
+#10.6 strings
+strings -displaying readable ascii strings found in (binary) files.
+which ls
+strings /bin/ls
+
+#10.7 practice: file contents
+
+1.  head -12 /etc/services
+2.  tail -1 /etc/passwd
+3.  cat > count.txt << stop
+    > One
+    > Two
+    > Three
+    > Four
+    > Five
+    > stop
+4.  cp count.txt cnt.txt
+5.  cat count.txt > catcnt.txt
+6.  tac catcnt.txt
+7.  more /etc/services
+8.  strings /usr/bin/passwd
+9.  ls -lrS /etc
+10. (1)echo this is the first line > tailing.txt
+    (2)tail -f tailing.txt
+    (1)echo This is another line >> tailing.txt
+    (2)ctrl-c
+    (1) - first terminal
+    (2) - second terminal
+11. cat /etc/passwd>>tailing.txt
+12. mv tailing.txt tmp.txt
+    cat /etc/passwd tmp.txt > tailing.txt
+
+
+
+    
+
+
+
