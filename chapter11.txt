@@ -1,0 +1,196 @@
+#Chapter 11. the Linux file tree
+
+#11.2.
+man hier -> filesystem hierarchy
+
+#11.3. the root directory /
+ls /
+
+#11.4. binary directories
+#11.4.1. /bin
+it contains binaries for use by all users
+ls /bin
+
+#11.4.2. other /bin directories
+ls /home/user_name/bin
+
+#11.4.3. /sbin
+it contains binaries to configure the OS
+
+#11.4.4. /lib
+it contains shared libraries( often used by /bin and /sbin)
+/lib/modules ->Linux kernel loading modules from here
+/lib32 and /lib63
+
+#11.4.5. /opt
+it stores optional software
+
+#11.5. configuration directories
+#11.5.1. /boot
+it contains all files needed to boot the computer
+
+#11.5.2. /etc
+it contains all of the machine-specific configuration files
+
+/etc/init.d/ -> contains scripts to start and stop daemons
+/etc/X11/ -> graphical display
+/etc/skel/ -> this directory is copied to the home directory of a newly created user
+/etc/sysconfig/ -> for Red Hat
+
+#11.6. data direcotires
+#11.6.1. /home
+it store personal or project data
+
+#11.6.2. /root
+default location for personal data and profile of the root user
+
+#11.6.3. /srv
+used for data that is served by your system
+
+#11.6.4. /media
+it contains all removable devices
+
+#11.6.5. /mnt
+it should be empty and should be used for temporary mount points
+
+#11.6.6. /tmp
+it should be used to store temporary data when needed
+
+#11.7. in memory directories
+#11.7.1. /dev
+it is populated with files as the kernel is recognising hardware
+
+common physical devices -> common hardware such as hdd are represented by device files in /dev
+ls /dev/sd*
+ls /dev/hd*
+
+/dev/tty  -> terminal or console attached to the system
+/dev/pts -> terminal which is part of the GUI like Gnome or KDE
+
+/dev/null -> blacl hole (anything written here will be discarded)
+it is useful to discard unwanted output from commands
+
+#11.7.2. /proc conversation with the kernel
+it is a view of what the kernel manages, also it is /proc filesystem
+ls -al /proc/cpuinfo
+file /proc/cpuinfo
+cat /proc/cpuinfo
+
+/proc/interrupts -> displays the interrupts
+/proc/kcore -> physical memory is represented here ( size is same as your physical memory + 4 bytes)
+ls -lh /proc/kcore
+
+#11.7.3. /sys Linux 2.6 hot plugging
+/sys -> contains kernel information about hardware
+Since 2.6 kernel, linux uses sysfs to support usb nad IEEE 1394(FireWire) hot plug devices. 
+
+
+#11.8. /sur Unix System Resources
+
+#11.8.1. /usr/bin -> it contains a lot of commands
+ls /usr/bin | wc -l
+
+#11.8.2. /usr/include -> contains general use include files for C.
+ls /usr/include/
+
+#11.8.3 /usr/lib -> contains libraries that are not directly executed by users or scripts
+ls /usr/lib | head -7
+
+#11.8.4 /usr/local -> it can be used by an administartor to install software locally
+ls /usr/local/
+
+#11.8.5. /usr/share -> contains architecture independent data
+ls /usr/share/ | wc -l
+du -sh /usr/share/
+/usr/share/man -> manual pages
+ls /usr/share/man
+/usr/share/games -> for  all static game data(high-scores or play logs)
+ls /usr/share/games
+
+#11.8.6. /usr/scr -> recommended location for kernel source files
+ls -l /usr/scr
+
+#11.9. /var variable data
+
+#11.9.1. /var/log -> serves as a central point to contain all log files.
+ls /var/log
+
+#11.9.2. /var/log/syslog -> contain information on what just happened to the system
+tail /var/log/syslog
+
+#11.9.3 /var/cache -> contain cache data for several applications
+ls /var/cache/
+
+#11.9.4 /var/spool -> contains spool directories for mail and cron, but also serves as a parent drectory for other spool files
+
+#11.9.5. /var/lib
+The /var/lib directory contains applications state information
+
+#11.9.6. /var/..
+/var/run/ -> contains ProcessID(PID) files
+/var/tmp/ -> contains temporary files that survive a reboot
+/var/lock/ -> contains information about file locks
+
+
+#11.10. practice:
+1.  ls /bin/cat
+    file /bin/cat
+    ls /bin/dd
+    file /bin/dd
+    ls /bin/echo
+    file /bin/echo
+2.  ls -lh /boot/vm*
+3.  mkdir ~/test
+    cd ~/test
+    dd if=/dev/zero of=zeroes.txt count=1 bs=100
+    od zeroes.txt
+    /dev/zero -> providing null characters, typically it's using  to provide a character stream for initializing data storage
+4.  dd if=/dev/random of=random.txt count=1 bs=100
+    od random.txt
+    /dev/random ->providing random numbers
+5.  ls -l /dev/sd* /dev/hd*
+    ls -l /dev/tty* /dev/input/mou*
+    first is block device, Driver communicates with it by sending entire blocks of data
+    second is Character Device, driver communicate with it by sending and receiving single characters(e.g. bytes, octets)
+6.   cat /etc/hosts -> mapping hostnames to IP addresses
+     cat /etc/resolv.conf -> configure system's DNS resolver
+7.   ls -al /etc/skel   -> only hidden
+8.   ls -al /etc/skel   -> 64
+9.   cat /proc/interrupts 
+     du /proc/interrupts
+10.  sudo su cd /root
+     ls -a  -> only hidden files
+11.  Because /sbin keeps all secure binaries not ordinary
+    ls /sbin/ | grep ifconfig
+    ls /sbin/ | grep fdisk
+    ls /sbin/ | grep parted
+    ls /sbin/ | grep shutdown
+    ls /sbin/ | grep grub-install   -> this not
+12. file /var/log
+    file /var/spool
+13. next command prompts(ctrl-shift-t)
+    (1) who am i
+    (2) who am i
+14. man 4 random
+
+        
+
+
+        
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
